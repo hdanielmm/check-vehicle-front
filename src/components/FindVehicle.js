@@ -1,24 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Finder } from './Finder';
 
 export const FindVehicle = () => {
 
-  const findVehicle = () => {
-    return (
-      <div className='buscar-vehiculo'>
-        <form>
-          <label>
-            <input type="text" />
-          </label>
-          <input type='submit' value='Buscar' />
-        </form>
-      </div>
-    )
-  }
-
   return (
     <div>
-      {findVehicle()}
+      <Finder />
       <Link to='/vehicle/newVehicle'>Nuevo vehículo</Link>
     </div>
   )

@@ -11,7 +11,6 @@ const NewVehicle = () => {
             <input
               type='text'
               name='placa'
-
               value=""
               placeholder='Placa' />
           </label>
@@ -19,7 +18,6 @@ const NewVehicle = () => {
             <input
               type='text'
               name='marca'
-
               value=""
               placeholder='Marca' />
           </label>
@@ -27,7 +25,6 @@ const NewVehicle = () => {
             <input
               type='text'
               name='linea'
-
               value=""
               placeholder='Línea' />
           </label>
@@ -35,7 +32,6 @@ const NewVehicle = () => {
             <input
               type='text'
               name='modelo'
-
               value=""
               placeholder='Modelo' />
           </label>
