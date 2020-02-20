@@ -4,11 +4,12 @@ import FindVehicle from './FindVehicle';
 import NewVehicle from './NewVehicle';
 
 const Vehicle = () => {
+
   return (
     <div>
       <Switch>
         <Route exact path='/vehicle' component={FindVehicle} />
-        <Route path='/vehicle/newVehicle' component={NewVehicle} />
+        <Route path='/vehicle/:newVehicle' component={NewVehicle} />
       </Switch>
     </div>
   );
