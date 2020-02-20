@@ -1,7 +1,7 @@
 import React from 'react'
 import { Switch, Route } from 'react-router-dom'
-import { FindVehicle } from './FindVehicle';
-import { NewVehicle } from './NewVehicle';
+import FindVehicle from './FindVehicle';
+import NewVehicle from './NewVehicle';
 
 const Vehicle = () => {
   return (
