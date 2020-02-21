@@ -1,28 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { getVehicles } from '../api/api';
-import Axios from 'axios';
 
 const Home = () => {
   const [state, setState] = useState({
     vehicles: []
   });
 
-  componentDidMount() {
-    axios.get(`https://localhost:5001/vehicles`)
-      .then(res => {
-        const vehicles = res.data;
-        setState({ vehicles });
-        // setState({vehicles: [...state.vehicles, ...vehicles]});
-        console.log(state);
-      })
-  }
+  useEffect(() => {
+    const fetchData = async () => {
+      const result = await getVehicles();
+      console.log(result.data);
+      setState({vehicles: [...state.vehicles, ...result.data]});
+    };
+    fetchData(); 
+  }, []);
 
   return (
     <div>
       <ul>
         {state.vehicles.map((i, index) => (
 
-          <li>{index} - {i.LicensePlate}</li>
+          <li key={i.licensePlate}>{index} - {i.licensePlate}</li>
 
         ))}
       </ul>
