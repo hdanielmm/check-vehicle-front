@@ -9,9 +9,10 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       const result = await getVehicles();
-      console.log(result.data);
+      
       setState({vehicles: [...state.vehicles, ...result.data]});
     };
+    
     fetchData(); 
   }, []);
 
