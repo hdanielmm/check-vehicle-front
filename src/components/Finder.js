@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getVehicles } from '../api/api';
+import LastReview from './LastReview';
 
 export const Finder = (props) => {
   const [query, setQuery] = useState('AAA111');
@@ -75,6 +76,7 @@ export const Finder = (props) => {
   return (
     <div>
       {showVehicle()}
+      <LastReview vehicle={foundVehicle.found} />
     </div>
   )
 }
