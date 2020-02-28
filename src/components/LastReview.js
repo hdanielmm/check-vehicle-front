@@ -1,29 +1,64 @@
 import React, { useEffect, useState } from 'react'
-import { getPartReviews } from '../api/api';
+import { getVehiclePartReviews } from '../api/api';
 
 const LastReview = ({ vehicle }) => {
-  const [partReviewe, setPartReviewe] = useState({
-    partReviews: []
+  const [lastReview, setLastReview] = useState({
+    reviews: []
   });
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await getPartReviews();
+      const result = await getVehiclePartReviews();
 
-      setPartReviewe({ partReviews: [...partReviewe.partReviews, ...result.data] });
+      setLastReview({ reviews: [...lastReview.reviews, ...result.data] });
     };
 
     fetchData();
   }, []);
 
-  console.log('partReviewe', partReviewe);
+  const vehicleId = vehicle.map(i => i.id);
 
-  const result = vehicle.map(i => i.brand);
+  const isEqual = (num) => {
+    if (num === vehicleId[0]) {
+      return true;
+    }
+  }
 
-  console.log("props", result);
+  const filterById = obj => {
+    if (isEqual(obj.id)) {
+      return true
+    }
+  }
+
+  const lVehicle = lastReview.reviews.filter(filterById);
+
+  const vReview = lVehicle.map(i => i.vehicleReviews[0]);
+
+  const pReview = vReview.map(i => i.partReviews[0]);
+
+  const getDiagnosis = () => {
+    let d = "";
+    lVehicle.forEach(element => {
+      console.log(element.vehicleReviews[0].partReviews[0].diagnosis);
+      d = element.vehicleReviews[0].partReviews[0].diagnosis;
+    });
+    return d;
+  }
+
+  const getLastReview = () => {
+    return (
+      <ul>
+        <li>Parte</li>
+        <li>Técnico</li>
+        <li>Diagnóstico: {getDiagnosis()}</li>
+      </ul>
+    )
+  }
+
   return (
     <div>
-
+      {getLastReview()}
+      
     </div>
   )
 }
