@@ -36,7 +36,7 @@ export const Finder = (props) => {
       return vehicle.licensePlate === query;
     });
     setFoundVehicle({ found: result });
-    console.log(result[0].id);
+    console.log("vehicleId", result[0].id);
   };
 
   const showVehicle = () => {
