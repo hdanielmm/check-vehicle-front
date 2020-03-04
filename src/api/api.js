@@ -24,12 +24,14 @@ export const getEmployees = () => {
   return axios.get(url);
 }
 
+// Employee - PartReview - VehiclePart
 export const getEmployeePartReviews = () => {
   const url = 'https://localhost:5001/lastreview/evpr';
 
   return axios.get(url);
 }
 
+// Vehicle - VehicleReview - PartReview
 export const getVehiclePartReviews = () => {
   const url = 'https://localhost:5001/lastreview/vpr';
 
