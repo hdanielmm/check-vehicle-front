@@ -52,11 +52,21 @@ const LastReview = ({ vehicle }) => {
   const getDiagnosis = () => {
     let result = "";
     lVehicle.forEach(element => {
-      console.log(element.vehicleReviews[0].partReviews[0].diagnosis);
+      // console.log(element.vehicleReviews[0].partReviews[0].diagnosis);
       result = element.vehicleReviews[0].partReviews[0].diagnosis;
     });
     return result;
   }
+
+  const getPartReviewId = () => {
+    let result = "";
+    lVehicle.forEach(element => {
+      result = element.vehicleReviews[0].partReviews[0].id;
+    });
+    return result;
+  }
+
+  // console.log("getPartReviewId", getPartReviewId());
 
   const getEmployeeName = () => {
     const employeeObj = employeePartReview.employees.filter(i => eId[0] === i.id);
@@ -64,13 +74,40 @@ const LastReview = ({ vehicle }) => {
     return employeeName;
   }
 
-  console.log('lastReview', lastReview);
-  console.log('employeePartReview', employeePartReview);
+  const getVehiclePartName = () => {
+    const employeeObj = employeePartReview.employees.filter(i => eId[0] === i.id);
+    const partReviewObj = employeeObj.map(e => e.partReviews)[0];
+
+    if (partReviewObj) {
+      const vehiclePartObj = partReviewObj.map(e => e.vehiclePart.name);
+      return vehiclePartObj[getPartReviewId()];
+    }
+  }
+
+  // console.log("/*******/")
+
+  // const employeeObj = employeePartReview.employees.filter(i => eId[0] === i.id);
+  // console.log('employeObj', employeeObj);
+
+  // const partReviewObj = employeeObj.map(e => e.partReviews)[0];
+  // console.log('partReviewObj', partReviewObj);
+
+  // if(partReviewObj){
+  // const vehiclePartObj = partReviewObj.map(e => e.vehiclePart.name);
+  // console.log('vehiclePartObj', vehiclePartObj[getPartReviewId()]);
+  // }
+
+  // console.log('getVehiclePartName()', getVehiclePartName());
+
+  // console.log("/*******/")
+
+  // console.log('lastReview', lastReview);
+  // console.log('employeePartReview', employeePartReview);
 
   const getLastReview = () => {
     return (
       <ul>
-        <li>Parte</li>
+        <li>Parte: {getVehiclePartName()}</li>
         <li>Técnico: {getEmployeeName()}</li>
         <li>Diagnóstico: {getDiagnosis()}</li>
       </ul>
