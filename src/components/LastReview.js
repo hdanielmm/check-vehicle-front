@@ -52,7 +52,6 @@ const LastReview = ({ vehicle }) => {
   const getDiagnosis = () => {
     let result = "";
     lVehicle.forEach(element => {
-      // console.log(element.vehicleReviews[0].partReviews[0].diagnosis);
       result = element.vehicleReviews[0].partReviews[0].diagnosis;
     });
     return result;
@@ -65,8 +64,6 @@ const LastReview = ({ vehicle }) => {
     });
     return result;
   }
-
-  // console.log("getPartReviewId", getPartReviewId());
 
   const getEmployeeName = () => {
     const employeeObj = employeePartReview.employees.filter(i => eId[0] === i.id);
@@ -84,40 +81,20 @@ const LastReview = ({ vehicle }) => {
     }
   }
 
-  // console.log("/*******/")
-
-  // const employeeObj = employeePartReview.employees.filter(i => eId[0] === i.id);
-  // console.log('employeObj', employeeObj);
-
-  // const partReviewObj = employeeObj.map(e => e.partReviews)[0];
-  // console.log('partReviewObj', partReviewObj);
-
-  // if(partReviewObj){
-  // const vehiclePartObj = partReviewObj.map(e => e.vehiclePart.name);
-  // console.log('vehiclePartObj', vehiclePartObj[getPartReviewId()]);
-  // }
-
-  // console.log('getVehiclePartName()', getVehiclePartName());
-
-  // console.log("/*******/")
-
-  // console.log('lastReview', lastReview);
-  // console.log('employeePartReview', employeePartReview);
-
   const getLastReview = () => {
     return (
       <ul>
-        <li>Parte: {getVehiclePartName()}</li>
-        <li>Técnico: {getEmployeeName()}</li>
-        <li>Diagnóstico: {getDiagnosis()}</li>
+        <li>{getVehiclePartName()}</li>
+        <li>{getEmployeeName()}</li>
+        <li>{getDiagnosis()}</li>
       </ul>
     )
   }
 
   return (
     <div>
+      <h3>Última revisión</h3>
       {getLastReview()}
-
     </div>
   )
 }
