@@ -6,11 +6,9 @@ export const Header = () => {
   return (
     <header>
       <nav>
-        <ul>
-          <li><Link to='/'>Inicio</Link></li>
-          <li><Link to='/vehicle'>Vehículo</Link></li>
-          <li><Link to='/review'>Revisión</Link></li>
-        </ul>
+        <Link to='/'>Inicio</Link>
+        <Link to='/vehicle'>Vehículo</Link>
+        <Link to='/review'>Revisión</Link>
       </nav>
     </header>
   );
