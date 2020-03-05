@@ -76,7 +76,9 @@ export const Finder = (props) => {
   return (
     <div>
       {showVehicle()}
-      <LastReview vehicle={foundVehicle.found} />
+      {foundVehicle.found.length > 0 && (
+        <LastReview vehicle={foundVehicle.found} />
+      )}
     </div>
   )
 }
