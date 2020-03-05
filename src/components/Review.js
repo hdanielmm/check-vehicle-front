@@ -10,7 +10,6 @@ const Review = () => {
       <Finder />
       <Switch>
         <Route exact path='/review' component={FindReview} />
-        {/* <Route path='/review/:pendingReview' component={PendingReview} /> */}
         <Route path='/review/:newReview' component={NewReview} />
       </Switch>
     </div>
