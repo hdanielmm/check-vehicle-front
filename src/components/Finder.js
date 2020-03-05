@@ -50,10 +50,7 @@ export const Finder = (props) => {
               onChange={handleChange}
             />
           </label>
-          <input
-            type='submit'
-            value='Buscar'
-          />
+          <input type='submit' value='Buscar' />
         </form>
         <ul>
           {
